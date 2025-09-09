@@ -33,31 +33,33 @@ Tabel utama:
 
 ---
 
-## 🚀 Getting Started
+📄 README.md (Getting Started full version)
+# 🚀 Getting Started
 
-### 
-1. Clone repository
+## 1️⃣ Clone repository
 ```bash
 git clone https://github.com/anntonw/MCU-Form.git
 cd MCU-Form
-2. Install dependencies
-bash
-Copy code
-npm install
-3. Setup environment
-Buat file .env:
 
-env
-Copy code
+2️⃣ Install dependencies
+npm install
+
+3️⃣ Setup environment
+
+Buat file .env di root project berdasarkan .env.example:
+
 DB_HOST=localhost
 DB_USER=root
 DB_PASS=yourpassword
 DB_NAME=mcu_db
 API_KEY_TTE=your_api_key
-4. Run server
-bash
-Copy code
+PORT=3000
+
+4️⃣ Run server
 node server.js
+
+
 Akses di:
-👉 http://localhost:3000
-👉 atau LAN: http://127.0.0.1:3000
+
+http://localhost:3000
+http://127.0.0.1:3000
