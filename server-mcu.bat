@@ -1,5 +1,5 @@
 @echo off
 echo ?? Starting MCU Form Server...
-cd /d "D:\RSBA APP\mcu-form"
+cd /d "D:\[YOUR PATH]\mcu-form"
 node index.js
 pause
