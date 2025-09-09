@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Medical Report Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-10">
+    <div class="max-w-5xl mx-auto bg-white p-8 shadow-lg rounded-lg">
+        <h1 class="text-3xl font-bold text-emerald-700 mb-6">Medical Report Form</h1>
+
+        <form action="/submit" method="POST" enctype="multipart/form-data" class="space-y-6">
+
+            <!-- Medical Report -->
+            <h2 class="text-2xl font-semibold text-gray-800 border-b border-emerald-200 pb-2">Medical Report</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label for="medical_record_no" class="block text-gray-700 font-medium mb-1">No. Medical Record</label>
+                    <input id="medical_record_no" name="medical_record_no" type="text" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none"
+                        required>
+                </div>
+                <div>
+                    <label for="name" class="block text-gray-700 font-medium mb-1">Name</label>
+                    <input id="name" name="name" type="text" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none" required>
+                </div>
+                <div>
+                    <label for="sex" class="block text-gray-700 font-medium mb-1">Sex</label>
+                    <select id="sex" name="sex" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none" required>
+                        <option value="">-- Select --</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="birth_date" class="block text-gray-700 font-medium mb-1">Birth Date</label>
+                    <input id="birth_date" name="birth_date" type="date" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none" required>
+                </div>
+                <div>
+                    <label for="nationality" class="block text-gray-700 font-medium mb-1">Nationality</label>
+                    <input id="nationality" name="nationality" type="text" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none" value="INDONESIA">
+                </div>
+                <div>
+                    <label for="address" class="block text-gray-700 font-medium mb-1">Address</label>
+                    <input id="address" name="address" type="text" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                </div>
+                <div class="col-span-2">
+                    <label for="company" class="block text-gray-700 font-medium mb-1">Company</label>
+                    <input id="company" name="company" type="text" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                </div>
+
+                <div class="col-span-2">
+                    <label for="photo" class="block text-gray-700 font-medium mb-1">Upload Photo</label>
+                    <input id="photo" name="photo" type="file" accept="image/*" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                    <p class="text-sm text-gray-500 mt-1">Format: JPG/PNG/GIF/WEBP, max 3MB.</p>
+                </div>
+            </div>
+
+            <!-- Medical History -->
+            <h2 class="text-2xl font-semibold border-b pb-2">Medical History</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <!-- Diphteria -->
+                <div class="flex items-center justify-between">
+                    <label class="font-medium w-1/2">Diphteria</label>
+                    <select name="diphteria" class="border p-2 w-1/2">
+                        <option value="No" selected>No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <!-- Sinusitis -->
+                <div class="flex items-center justify-between">
+                    <label class="font-medium w-1/2">Sinusitis</label>
+                    <select name="sinusitis" class="border p-2 w-1/2">
+                        <option value="No" selected>No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <!-- Bronchitis Chronic -->
+                <div class="flex items-center justify-between">
+                    <label class="font-medium w-1/2">Bronchitis Chronic</label>
+                    <select name="bronchitis_chronic" class="border p-2 w-1/2">
+                        <option value="No" selected>No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <!-- Pulmonary TBC -->
+                <div class="flex items-center justify-between">
+                    <label class="font-medium w-1/2">Pulmonary TBC</label>
+                    <select name="pulmonary_tbc" class="border p-2 w-1/2">
+                        <option value="No" selected>No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <!-- Asthma -->
+                <div class="flex items-center justify-between">
+                    <label class="font-medium w-1/2">Asthma</label>
+                    <select name="asthma" class="border p-2 w-1/2">
+                        <option value="No" selected>No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <!-- Covid-19 -->
+                <div class="flex items-center justify-between">
+                    <label class="font-medium w-1/2">Covid-19</label>
+                    <select name="covid" class="border p-2 w-1/2">
+                        <option value="No" selected>No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <!-- Kidney Disease -->
+                <div class="flex items-center justify-between">
+                    <label class="font-medium w-1/2">Kidney Disease</label>
+                    <select name="kidney_disease" class="border p-2 w-1/2">
+                        <option value="No" selected>No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <!-- Epilepsy -->
+                <div class="flex items-center justify-between">
+                    <label class="font-medium w-1/2">Epilepsy</label>
+                    <select name="epilepsy" class="border p-2 w-1/2">
+                        <option value="No" selected>No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <!-- Hypertension -->
+                <div class="flex items-center justify-between">
+                    <label class="font-medium w-1/2">Hypertension</label>
+                    <select name="hypertension" class="border p-2 w-1/2">
+                        <option value="No" selected>No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <!-- Varicose Vein -->
+                <div class="flex items-center justify-between">
+                    <label class="font-medium w-1/2">Varicose Vein</label>
+                    <select name="vericose_vein" class="border p-2 w-1/2">
+                        <option value="No" selected>No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <!-- Rheumatoid Arthritis -->
+                <div class="flex items-center justify-between">
+                    <label class="font-medium w-1/2">Rheumatoid Arthritis</label>
+                    <select name="rheumatoid_arthritis" class="border p-2 w-1/2">
+                        <option value="No" selected>No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <!-- Thyroid -->
+                <div class="flex items-center justify-between">
+                    <label class="font-medium w-1/2">Thyroid</label>
+                    <select name="thyroid" class="border p-2 w-1/2">
+                        <option value="No" selected>No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <!-- Stroke -->
+                <div class="flex items-center justify-between">
+                    <label class="font-medium w-1/2">Stroke</label>
+                    <select name="stroke" class="border p-2 w-1/2">
+                        <option value="No" selected>No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <!-- Polio -->
+                <div class="flex items-center justify-between">
+                    <label class="font-medium w-1/2">Polio</label>
+                    <select name="polio" class="border p-2 w-1/2">
+                        <option value="No" selected>No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <!-- Meningitis -->
+                <div class="flex items-center justify-between">
+                    <label class="font-medium w-1/2">Meningitis</label>
+                    <select name="meningitis" class="border p-2 w-1/2">
+                        <option value="No" selected>No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <!-- Hepatitis -->
+                <div class="flex items-center justify-between">
+                    <label class="font-medium w-1/2">Hepatitis</label>
+                    <select name="hepatitis" class="border p-2 w-1/2">
+                        <option value="No" selected>No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <!-- Tumor -->
+                <div class="flex items-center justify-between">
+                    <label class="font-medium w-1/2">Tumor</label>
+                    <select name="tumor" class="border p-2 w-1/2">
+                        <option value="No" selected>No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+                <div class="flex items-center justify-between">
+                    <label class="font-medium w-1/2">Other</label>
+                    <input id="other_history" name="other_history" type="text" class="border p-2 w-1/2">
+                </div>
+            </div>
+
+            <!-- Medical Examination -->
+            <h2 class="text-2xl font-semibold border-b pb-2">Medical Examination</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- Kolom 1 -->
+                <div class="space-y-4">
+                    <div>
+                        <label for="height" class="block text-gray-700 font-medium mb-1">Height (cm)</label>
+                        <input id="height" name="height" type="number" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none" min="0">
+                    </div>
+                    <div>
+                        <label for="weight" class="block text-gray-700 font-medium mb-1">Weight (kg)</label>
+                        <input id="weight" name="weight" type="number" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none" min="0">
+                    </div>
+                    <div>
+                        <label for="blood_pressure" class="block text-gray-700 font-medium mb-1">Blood Pressure (mmHg)</label>
+                        <input id="blood_pressure" name="blood_pressure" type="text" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                    </div>
+                    <div>
+                        <label for="pulse" class="block text-gray-700 font-medium mb-1">Pulse (/mnt)</label>
+                        <input id="pulse" name="pulse" type="text" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                    </div>
+                </div>
+
+                <!-- Kolom 2 -->
+                <div class="space-y-4">
+                    <div>
+                        <label for="eyes_right" class="block text-gray-700 font-medium mb-1">Eyes: Right</label>
+                        <input id="eyes_right" name="eyes_right" type="text" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                    </div>
+                    <div>
+                        <label for="eyes_left" class="block text-gray-700 font-medium mb-1">Eyes: Left</label>
+                        <input id="eyes_left" name="eyes_left" type="text" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                    </div>
+                    <div>
+                        <label for="color_vision" class="block text-gray-700 font-medium mb-1">Color Vision</label>
+                        <select id="color_vision" name="color_vision" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                            <option value="NORMAL" selected>NORMAL</option>
+                            <option value="ABNORMAL">ABNORMAL</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="color_blindness" class="block text-gray-700 font-medium mb-1">Color Blindness</label>
+                        <select id="color_blindness" name="color_blindness" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                            <option value="NORMAL" selected>NORMAL</option>
+                            <option value="ABNORMAL">ABNORMAL</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Kolom 3 -->
+                <div class="space-y-4">
+                    <div>
+                        <label for="hemoglobin" class="block text-gray-700 font-medium mb-1">Hemoglobin</label>
+                        <input id="hemoglobin" name="hemoglobin" type="text" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                    </div>
+                    <div>
+                        <label for="sgot" class="block text-gray-700 font-medium mb-1">SGOT</label>
+                        <input id="sgot" name="sgot" type="text" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                    </div>
+                    <div>
+                        <label for="sgpt" class="block text-gray-700 font-medium mb-1">SGPT</label>
+                        <input id="sgpt" name="sgpt" type="text" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                    </div>
+                    <div>
+                        <label for="chest_xray" class="block text-gray-700 font-medium mb-1">Chest: X-Ray</label>
+                        <select id="chest_xray" name="chest_xray" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                            <option value="NORMAL" selected>NORMAL</option>
+                            <option value="ABNORMAL">ABNORMAL</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <label for="head_neck" class="block text-gray-700 font-medium mb-1">Head and Neck</label>
+                <select id="head_neck" name="head_neck" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                    <option value="NORMAL">NORMAL</option>
+                    <option value="ABNORMAL">ABNORMAL</option>
+                </select>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label for="hearing_right" class="block text-gray-700 font-medium mb-1">Hearing - Right</label>
+                    <select id="hearing_right" name="hearing_right" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                        <option value="NORMAL">NORMAL</option>
+                        <option value="ABNORMAL">ABNORMAL</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="hearing_left" class="block text-gray-700 font-medium mb-1">Hearing - Left</label>
+                    <select id="hearing_left" name="hearing_left" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                        <option value="NORMAL">NORMAL</option>
+                        <option value="ABNORMAL">ABNORMAL</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Abdomen -->
+            <h2 class="text-xl font-semibold">Abdomen</h2>
+            <p class="text-sm mt-1">Centang (<code>☑</code>) jika <strong>Normal</strong></p>
+            <div class="grid grid-cols-2 gap-4">
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="abdomen_hernia" value="1"
+                        checked> Hernia</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="abdomen_tumor" value="1"
+                        checked> Tumor</label>
+            </div>
+
+            <!-- Immunoserology -->
+            <h2 class="text-2xl font-semibold border-b pb-2">Immunoserology</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label for="hbsag" class="block text-gray-700 font-medium mb-1">HBsAg</label>
+                    <select id="hbsag" name="hbsag" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                        <option value="NEGATIVE">NEGATIVE</option>
+                        <option value="POSITIVE">POSITIVE</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="vdrl" class="block text-gray-700 font-medium mb-1">VDRL</label>
+                    <select id="vdrl" name="vdrl" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                        <option value="NEGATIVE">NEGATIVE</option>
+                        <option value="POSITIVE">POSITIVE</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="tpha" class="block text-gray-700 font-medium mb-1">TPHA</label>
+                    <select id="tpha" name="tpha" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                        <option value="NEGATIVE">NEGATIVE</option>
+                        <option value="POSITIVE">POSITIVE</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="hiv" class="block text-gray-700 font-medium mb-1">HIV</label>
+                    <select id="hiv" name="hiv" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                        <option value="NON_REACTIVE">NON REACTIVE</option>
+                        <option value="REACTIVE">REACTIVE</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Skin -->
+            <h2 class="text-xl font-semibold">Skin & Nail</h2>
+            <p class="text-sm mt-1">Centang (<code>☑</code>) jika <strong>Normal</strong></p>
+            <div class="grid grid-cols-2 gap-4">
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="skin_disease" value="1"
+                        checked> Skin Disease</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="nail" value="1" checked>
+                    Nail</label>
+            </div>
+
+            <!-- Urinalysis -->
+            <h2 class="text-2xl font-semibold border-b pb-2">Urinalysis</h2>
+            <p class="text-sm mt-1">Centang (<code>☑</code>) jika <strong>Normal</strong></p>
+            <div class="grid grid-cols-2 gap-4">
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="urinalysis_protein" value="1"
+                        checked> Protein</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="urinalysis_bilirubin"
+                        value="1" checked> Bilirubin</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="urinalysis_glucose" value="1"
+                        checked> Glucose</label>
+            </div>
+            <div>
+                <label for="urinalysis_other" class="block text-gray-700 font-medium mb-1">Others</label>
+                <input id="urinalysis_other" name="urinalysis_other" type="text" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+            </div>
+
+            <!-- Internal Disease -->
+            <h2 class="text-2xl font-semibold border-b pb-2">Internal Disease</h2>
+            <p class="text-sm mt-1">Centang (<code>☑</code>) jika <strong>Normal</strong></p>
+            <div class="grid grid-cols-3 gap-4">
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="internal_heart" value="1"
+                        checked> Heart</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="internal_lung" value="1"
+                        checked> Lung</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="internal_liver" value="1"
+                        checked> Liver</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="internal_spleen" value="1"
+                        checked> Spleen</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="internal_kidney" value="1"
+                        checked> Kidney</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="internal_thyroid" value="1"
+                        checked> Thyroid</label>
+            </div>
+
+            <div>
+                <label for="conclusion" class="block text-gray-700 font-medium mb-1">Conclusion</label>
+                <textarea id="conclusion" name="conclusion" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none" rows="3"></textarea>
+            </div>
+
+            <div>
+                <label for="doctor_id" class="block text-gray-700 font-medium mb-1">Examination (Doctor)</label>
+                <select id="doctor_id" name="doctor_id" class="w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none">
+                    <option value="">-- Select Doctor --</option>
+                </select>
+                
+            </div>
+
+            <!-- Submit -->
+            <div class="flex gap-4">
+                <button type="submit"
+                  class="bg-emerald-600 text-white px-6 py-2 rounded-lg shadow hover:bg-emerald-700 transition">
+                  Submit
+                </button>
+                <button type="button" id="btnViewData"
+                  class="bg-gray-600 text-white px-6 py-2 rounded-lg shadow hover:bg-gray-700 transition">
+                  Lihat Data
+                </button>
+              </div>
+        </form>
+    </div>
+
+    <!-- Modal -->
+    <div id="modalData" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-lg shadow-lg w-11/12 max-w-4xl p-6 relative">
+            <h2 class="text-xl font-semibold mb-4">Data Medical Report</h2>
+
+
+            <div class="flex justify-between items-center mb-2">
+                <input id="searchInput" type="text" class="border p-2 rounded w-1/3"
+                    placeholder="Cari nama / MRN / perusahaan...">
+                <div id="pagination" class="flex gap-2"></div>
+            </div>
+
+            <table class="min-w-full border border-gray-300 text-sm">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th class="border px-2 py-1">No</th>
+                        <th class="border px-2 py-1">Medical Record No</th>
+                        <th class="border px-2 py-1">Name</th>
+                        <th class="border px-2 py-1">Sex</th>
+                        <th class="border px-2 py-1">Birth Date</th>
+                        <th class="border px-2 py-1">Company</th>
+                        <th class="border px-2 py-1">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="reportTable" class="divide-y divide-gray-200">
+                    <!-- Data akan diisi via fetch -->
+                </tbody>
+            </table>
+
+            <button id="btnCloseModal" class="absolute top-2 right-2 text-gray-600 hover:text-black">✖</button>
+        </div>
+    </div>
+    <!-- Modal Loading -->
+    <div id="loadingModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+        <p class="text-lg font-semibold">⏳ Sedang proses generate dan upload ke server TTE...</p>
+        </div>
+    </div>
+    
+    <!-- Toast Success -->
+    <div id="successToast" class="fixed bottom-5 right-5 bg-green-600 text-white px-4 py-3 rounded-lg shadow-lg hidden z-50">
+        ✅ Medical report berhasil dibuat & diupload!
+    </div>
+
+    <script>
+        // Ambil query string dari URL
+        const params = new URLSearchParams(window.location.search);
+
+
+
+        // Cari input berdasarkan id
+        const mrInput = document.getElementById("medical_record_no");
+        const nameInput = document.getElementById("name");
+        const alamat = document.getElementById("address");
+        const jk = params.get("jk"); // contoh ?jk=1
+        const tgllhr = params.get("tgllhr"); // contoh ?tgllhr=25-12-2000
+
+        if (tgllhr) {
+            const [dd, mm, yyyy] = tgllhr.split("-");
+            if (dd && mm && yyyy) {
+            // konversi ke format yyyy-mm-dd
+            const formatted = `${yyyy}-${mm.padStart(2, "0")}-${dd.padStart(2, "0")}`;
+            document.getElementById("birth_date").value = formatted;
+            }
+        }
+
+        const sexSelect = document.getElementById("sex");
+
+        if (jk === "1") {
+            sexSelect.value = "Male";
+        } else if (jk === "2") {
+            sexSelect.value = "Female";
+        }
+
+        // Set value jika ada param
+        if (params.has("mr")) {
+            mrInput.value = params.get("mr");
+        }
+        if (params.has("name")) {
+            nameInput.value = params.get("name");
+        }
+        if (params.has("alamat")) {
+            alamat.value = params.get("alamat");
+        }
+
+
+        const idmd5Param = params.get("id"); // ambil idmd5 dari query URL
+        // populate doctor dropdown dari API
+        fetch("/api/doctors")
+            .then(res => res.json())
+            .then(list => {
+                const sel = document.getElementById("doctor_id");
+                list.forEach(d => {
+                    const opt = document.createElement("option");
+                    opt.value = d.id;   // ini id numerik
+                    opt.textContent = d.name;
+                    sel.appendChild(opt);
+
+                    // Auto-select jika idmd5 cocok
+                    if (d.idmd5 === idmd5Param) {
+                        sel.value = d.id;
+                    }
+                });
+            })
+            .catch(err => console.error("Error fetch doctors:", err));
+
+        const btnView = document.getElementById("btnViewData");
+        const modal = document.getElementById("modalData");
+        const btnClose = document.getElementById("btnCloseModal");
+        const tableBody = document.getElementById("reportTable"); // <tbody>
+        const searchInput = document.getElementById("searchInput"); // <input type="text" id="searchInput">
+        const pagination = document.getElementById("pagination"); // <div id="pagination">
+
+        let allData = [];
+        let filteredData = [];
+        let currentPage = 1;
+        const rowsPerPage = 5;
+
+        // Render table
+        function renderTable() {
+            tableBody.innerHTML = "";
+
+            const start = (currentPage - 1) * rowsPerPage;
+            const end = start + rowsPerPage;
+            const pageData = filteredData.slice(start, end);
+
+            if (pageData.length === 0) {
+                tableBody.innerHTML = `
+      <tr>
+        <td colspan="6" class="text-center py-2 text-gray-500">Tidak ada data</td>
+      </tr>
+    `;
+                return;
+            }
+
+            pageData.forEach((row, i) => {
+                const birthDate = row.birth_dates
+                    ? new Date(row.birth_dates).toISOString().split("T")[0]
+                    : "-";
+
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+      <td class="border px-2 py-1 text-center">${start + i + 1}</td>
+      <td class="border px-2 py-1">${row.medical_record_no || "-"}</td>
+      <td class="border px-2 py-1">${row.name || "-"}</td>
+      <td class="border px-2 py-1">${row.sex || "-"}</td>
+      <td class="border px-2 py-1">${birthDate}</td>
+      <td class="border px-2 py-1">${row.company || "-"}</td>
+       <td class="border px-2 py-1 text-center space-x-2">
+            <button class="bg-red-500 text-white px-2 py-1 rounded text-sm" onclick="deleteReport(${row.id})">Hapus</button>
+            <button class="bg-green-500 text-white px-2 py-1 rounded text-sm" onclick="printReport(${row.id})">Print</button>
+        </td>
+    `;
+                tableBody.appendChild(tr);
+            });
+
+            renderPagination();
+        }
+
+        async function deleteReport(id) {
+        if (!confirm("Yakin ingin menghapus data ini?")) return;
+        try {
+            const res = await fetch(`/api/medical_reports/${id}`, { method: "DELETE" });
+            if (res.ok) {
+            alert("✅ Data berhasil dihapus");
+            // Refresh tabel
+            fetchData();
+            } else {
+            alert("❌ Gagal menghapus");
+            }
+        } catch (err) {
+            alert("❌ Error: " + err.message);
+        }
+        }
+
+        function printReport(id) {
+        // langsung buka file PDF hasil generate
+        window.open(`/reports/report_${id}.pdf`, "_blank");
+        }
+
+        // Render pagination
+        function renderPagination() {
+            pagination.innerHTML = "";
+            const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+
+            if (totalPages <= 1) return;
+
+            // Prev button
+            const prevBtn = document.createElement("button");
+            prevBtn.textContent = "Prev";
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.className = "px-3 py-1 border rounded mx-1 bg-gray-200 disabled:opacity-50";
+            prevBtn.addEventListener("click", () => {
+                if (currentPage > 1) {
+                currentPage--;
+                renderTable();
+                }
+            });
+            pagination.appendChild(prevBtn);
+
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                const btn = document.createElement("button");
+                btn.textContent = i;
+                btn.className = `px-3 py-1 border rounded mx-1 ${i === currentPage ? "bg-blue-600 text-white" : "bg-gray-200"}`;
+                btn.addEventListener("click", () => {
+                currentPage = i;
+                renderTable();
+                });
+                pagination.appendChild(btn);
+            }
+
+            // Next button
+            const nextBtn = document.createElement("button");
+            nextBtn.textContent = "Next";
+            nextBtn.disabled = currentPage === totalPages;
+            nextBtn.className = "px-3 py-1 border rounded mx-1 bg-gray-200 disabled:opacity-50";
+            nextBtn.addEventListener("click", () => {
+                if (currentPage < totalPages) {
+                currentPage++;
+                renderTable();
+                }
+            });
+            pagination.appendChild(nextBtn);
+            }
+
+        // Search filter
+        searchInput.addEventListener("input", () => {
+            const keyword = searchInput.value.toLowerCase();
+            filteredData = allData.filter(
+                (row) =>
+                    row.name?.toLowerCase().includes(keyword) ||
+                    row.medical_record_no?.toLowerCase().includes(keyword) ||
+                    row.company?.toLowerCase().includes(keyword)
+            );
+            currentPage = 1;
+            renderTable();
+        });
+
+        // Buka modal + fetch data
+        btnView.addEventListener("click", () => {
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+
+            fetch("/api/medical_reports")
+                .then((res) => res.json())
+                .then((data) => {
+                    allData = data;
+                    filteredData = [...allData];
+                    currentPage = 1;
+                    renderTable();
+                })
+                .catch((err) => {
+                    console.error("Fetch error:", err);
+                    tableBody.innerHTML = `
+        <tr>
+          <td colspan="6" class="text-center text-red-500 py-2">Gagal load data</td>
+        </tr>
+      `;
+                });
+        });
+
+        // Tutup modal
+        btnClose.addEventListener("click", () => {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+        });
+
+        document.querySelector("form").addEventListener("submit", async function (e) {
+        e.preventDefault(); // cegah submit default
+        const form = e.target;
+
+        // 1️⃣ Tampilkan modal loading
+        document.getElementById("loadingModal").classList.remove("hidden");
+
+        try {
+            const formData = new FormData(form);
+            const res = await fetch(form.action, {
+            method: form.method,
+            body: formData
+            });
+
+            const text = await res.text();
+
+            // 2️⃣ Sembunyikan modal loading
+            document.getElementById("loadingModal").classList.add("hidden");
+
+            if (res.ok) {
+            // 3️⃣ Tampilkan toast success
+            const toast = document.getElementById("successToast");
+            toast.classList.remove("hidden");
+            setTimeout(() => toast.classList.add("hidden"), 4000); // auto-hide
+            console.log("✅ Success:", text);
+            } else {
+            alert("❌ Error: " + text);
+            }
+        } catch (err) {
+            document.getElementById("loadingModal").classList.add("hidden");
+            alert("❌ Request gagal: " + err.message);
+        }
+        });
+    </script>
+</body>
+
+</html>
