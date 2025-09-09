@@ -40,12 +40,15 @@ Tabel utama:
 ```bash
 git clone https://github.com/anntonw/MCU-Form.git
 cd MCU-Form
+```
 
 2️⃣ Install dependencies
+```bash
 npm install
+```
 
 3️⃣ Setup environment
-
+```bash
 Buat file .env di root project berdasarkan .env.example:
 
 DB_HOST=localhost
@@ -54,10 +57,11 @@ DB_PASS=yourpassword
 DB_NAME=mcu_db
 API_KEY_TTE=your_api_key
 PORT=3000
-
+```
 4️⃣ Run server
+```bash
 node server.js
-
+```
 
 Akses di:
 
